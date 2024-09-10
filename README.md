@@ -1,0 +1,1 @@
+# mgd_quotation_uichange0924
