@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
@@ -26,7 +28,6 @@ import { AiOutlineSchedule } from "react-icons/ai";
 import { GiLaserPrecision } from "react-icons/gi";
 import { HiCubeTransparent } from "react-icons/hi";
 import { AiFillSchedule } from "react-icons/ai";
-
 
 // export const customerSidebar = [
 //   {
@@ -597,174 +598,179 @@ import { AiFillSchedule } from "react-icons/ai";
 //   }
 // ];
 
-
 export const quotationSidebar = [
-  {
-    title: "Quotation",
-    icon: <SiRedhatopenshift/>,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-      {
-        title: "New Quote",
-        // path: "/customer/orders?ordstat=Created",
-        path: "/Quotation/CreateNewQuotation?qtnformat=Profile",
-        icon: <BsServer />,
-      },
-      {
-        title: "Find Quote",
-        // path: "/Quotation/Quotations/FindQuote/GetQuotationForm?qtnformat=Profile",
-        path: "/Quotation/GetQuotationForm?qtnformat=Profile",
-        icon: <VscServerProcess />,
-      },
-      {
-        title: "Quote List",
-        // path: "/Quotation/SearchQuote?qtnformat=Profile",
-        icon: <FiCpu />,
-        subNav: [
-          {
-            title: "To Send",
-            path: "/Quotation/QuoteList?qtnliststat=To Send&qtnstatus=Created&qtnformat=Profile",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Sent",
-            path: "/Quotation/QuoteList?qtnliststat=Sent&qtnstatus=Qtn Sent&qtnformat=Profile",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "No Order",
-            path: "/Quotation/QuoteList?qtnliststat=No Order&qtnstatus=No Order&qtnformat=Profile",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Order",
-            path: "/Quotation/QuoteList?qtnliststat=Order&qtnstatus=Order Received&qtnformat=Profile",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Closed",
-            path: "/Quotation/QuoteList?qtnliststat=Closed&qtnstatus=Closed&qtnformat=Profile",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Service",
-    // path: "/customer/orders",
-    icon: <FiCpu />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-      {
-        title: "New Quote",
-        path: "/Quotation/CreateNewQuotation?qtnformat=Service",
-        icon: <BsServer />,
-        // icon: <IoIcons.IoIosPaper />,
-      },
-      {
-        title: "Find Quote",
-        path: "/Quotation/GetQuotationForm?qtnformat=Service",
-        icon: <VscServerProcess />,
-        // icon: <IoIcons.IoIosPaper />,
-      },
-      {
-        title: "Quote List",
-        //  path: "/Customer/Orders/OrdersProcessing?ordstat=Processing",
-        icon: <FiCpu />,
-        subNav: [
-          {
-            title: "To Send",
-            path: "/Quotation/QuoteList?qtnliststat=ToSend&qtnstatus=Created&qtnformat=Service",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Sent",
-            path: "/Quotation/QuoteList?qtnliststat=Sent&qtnstatus=Qtn Sent&qtnformat=Service",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "No Order",
-            path: "/Quotation/QuoteList?qtnliststat=No Order&qtnstatus=No Order&qtnformat=Service",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Order",
-            path: "/Quotation/QuoteList?qtnliststat=Order&qtnstatus=Order Received&qtnformat=Service",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Closed",
-            path: '/Quotation/Quotelist?qtnliststat=Closed&qtnstatus=Closed&qtnformat=Service',
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-        ],
-      },
-    ]
-  },
-  {
-    title: "Fabrication",
-    // path: "/customer/orders",
-    icon: <FiCpu />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-      {
-        title: "New Quote",
-        path: "/Quotation/CreateNewQuotation?qtnformat=Fabrication",
-        icon: <BsServer />,
-        // icon: <IoIcons.IoIosPaper />,
-      },
-      // {
-      //   title: "Find Quote",
-      //   path: "/Quotation/GetQuotationForm?qtnformat=Fabrication",
-      //   icon: <IoIcons.IoIosPaper />,
-      // },
-      {
-        title: "Quote List",
-        //  path: "/Customer/Orders/OrdersProcessing?ordstat=Processing",
-        icon: <FiCpu />,
-        subNav: [
-          {
-            title: "To Send",
-            path: "/Quotation/QuoteList?qtnstatus=Created&qtnformat=Fabrication",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Sent",
-            path: "/Quotation/QuoteList?qtnstatus=Qtn Sent&qtnformat=Fabrication",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "No Order",
-            path: "/Quotation/QuoteList?qtnstatus=No Order&qtnformat=Fabrication",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Order",
-            path: "/Quotation/QuoteList?qtnstatus=Order Received&qtnformat=Fabrication",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-          {
-            title: "Closed",
-            path: "/Quotation/QuoteList?qtnstatus=Closed&qtnformat=Fabrication",
-            // icon: <AiIcons.AiOutlineArrowRight />,
-          },
-        ],
-      },
-    ]
-  },
-  {
-    title: "Previous Menu",
-    path: "/salesHome",
-    icon: <MdIcon.MdPreview />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-  }
+	{
+		title: "Quotation",
+		icon: <SiRedhatopenshift />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
+		subNav: [
+			{
+				title: "New Quote",
+				// path: "/customer/orders?ordstat=Created",
+				path: "/Quotation/CreateNewQuotation?qtnformat=Profile",
+				icon: <BsServer />,
+			},
+			{
+				title: "Find Quote",
+				// path: "/Quotation/Quotations/FindQuote/GetQuotationForm?qtnformat=Profile",
+				path: "/Quotation/GetQuotationForm?qtnformat=Profile",
+				icon: <VscServerProcess />,
+			},
+			{
+				title: "Quote List",
+				// path: "/Quotation/SearchQuote?qtnformat=Profile",
+				icon: <FiCpu />,
+				subNav: [
+					{
+						title: "To Send",
+						path: "/Quotation/QuoteList?qtnliststat=To Send&qtnstatus=Created&qtnformat=Profile",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Sent",
+						path: "/Quotation/QuoteList?qtnliststat=Sent&qtnstatus=Qtn Sent&qtnformat=Profile",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "No Order",
+						path: "/Quotation/QuoteList?qtnliststat=No Order&qtnstatus=No Order&qtnformat=Profile",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Order",
+						path: "/Quotation/QuoteList?qtnliststat=Order&qtnstatus=Order Received&qtnformat=Profile",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Closed",
+						path: "/Quotation/QuoteList?qtnliststat=Closed&qtnstatus=Closed&qtnformat=Profile",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+				],
+			},
+		],
+	},
+	{
+		title: "Service",
+		// path: "/customer/orders",
+		icon: <FiCpu />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
+		subNav: [
+			{
+				title: "New Quote",
+				path: "/Quotation/CreateNewQuotation?qtnformat=Service",
+				icon: <BsServer />,
+				// icon: <IoIcons.IoIosPaper />,
+			},
+			{
+				title: "Find Quote",
+				path: "/Quotation/GetQuotationForm?qtnformat=Service",
+				icon: <VscServerProcess />,
+				// icon: <IoIcons.IoIosPaper />,
+			},
+			{
+				title: "Quote List",
+				//  path: "/Customer/Orders/OrdersProcessing?ordstat=Processing",
+				icon: <FiCpu />,
+				subNav: [
+					{
+						title: "To Send",
+						path: "/Quotation/QuoteList?qtnliststat=ToSend&qtnstatus=Created&qtnformat=Service",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Sent",
+						path: "/Quotation/QuoteList?qtnliststat=Sent&qtnstatus=Qtn Sent&qtnformat=Service",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "No Order",
+						path: "/Quotation/QuoteList?qtnliststat=No Order&qtnstatus=No Order&qtnformat=Service",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Order",
+						path: "/Quotation/QuoteList?qtnliststat=Order&qtnstatus=Order Received&qtnformat=Service",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Closed",
+						path: "/Quotation/Quotelist?qtnliststat=Closed&qtnstatus=Closed&qtnformat=Service",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+				],
+			},
+		],
+	},
+	{
+		title: "Fabrication",
+		// path: "/customer/orders",
+		icon: <FiCpu />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
+		subNav: [
+			{
+				title: "New Quote",
+				path: "/Quotation/CreateNewQuotation?qtnformat=Fabrication",
+				icon: <BsServer />,
+				// icon: <IoIcons.IoIosPaper />,
+			},
+			// {
+			//   title: "Find Quote",
+			//   path: "/Quotation/GetQuotationForm?qtnformat=Fabrication",
+			//   icon: <IoIcons.IoIosPaper />,
+			// },
+			{
+				title: "Quote List",
+				//  path: "/Customer/Orders/OrdersProcessing?ordstat=Processing",
+				icon: <FiCpu />,
+				subNav: [
+					{
+						title: "To Send",
+						path: "/Quotation/QuoteList?qtnstatus=Created&qtnformat=Fabrication",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Sent",
+						path: "/Quotation/QuoteList?qtnstatus=Qtn Sent&qtnformat=Fabrication",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "No Order",
+						path: "/Quotation/QuoteList?qtnstatus=No Order&qtnformat=Fabrication",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Order",
+						path: "/Quotation/QuoteList?qtnstatus=Order Received&qtnformat=Fabrication",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+					{
+						title: "Closed",
+						path: "/Quotation/QuoteList?qtnstatus=Closed&qtnformat=Fabrication",
+						// icon: <AiIcons.AiOutlineArrowRight />,
+					},
+				],
+			},
+		],
+	},
+	// {
+	//   title: "Previous Menu",
+	//   path: "/salesHome",
+	//   icon: <MdIcon.MdPreview />,
+	//   iconClosed: <RiIcons.RiArrowDownSFill />,
+	//   iconOpened: <RiIcons.RiArrowUpSFill />,
+	// }
+	{
+		title: "Previous Menu",
+		path: "http://172.16.20.61:3000/salesHome",
+		icon: <MdIcon.MdPreview />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
+	},
 ];
-
 
 ///////////////////////////////////////////////////////////////////////////
 // export const sigmancSidebar = [
@@ -782,7 +788,6 @@ export const quotationSidebar = [
 //         iconOpened: <RiIcons.RiArrowUpSFill />,
 //         // icon: <FiEdit />,
 //         subNav: [
-
 
 //           {
 //             title: "To_Program",
@@ -819,13 +824,11 @@ export const quotationSidebar = [
 //         iconClosed: <RiIcons.RiArrowDownSFill />,
 //         iconOpened: <RiIcons.RiArrowUpSFill />,
 //       }
-      
 
 //     ]
 //   }
 
 // ];
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -976,7 +979,6 @@ export const quotationSidebar = [
 //     ]
 //   }
 
-
 //   // {
 //   //   title: "Quotation",
 //   //   // path: "/customer/outstandings",
@@ -1038,14 +1040,14 @@ export const quotationSidebar = [
 //     icon: <BsIcon.BsListTask />,
 //     iconClosed: <RiIcons.RiArrowDownSFill />,
 //     iconOpened: <RiIcons.RiArrowUpSFill />,
- 
+
 //     subNav: [
 //       {
 //         title: "Server",
 //         path: "/materialmanagement/server",
 //         icon: <AiIcons.AiOutlineInfoCircle />,
 //       },
-      
+
 //     ],
 //   },*/
 
@@ -1545,46 +1547,46 @@ export const quotationSidebar = [
 // ];
 
 export const adminSidebar = [
-  {
-    title: "Access",
-    // path: "/customer",
-    icon: <FaIcon.FaUsers />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+	{
+		title: "Access",
+		// path: "/customer",
+		icon: <FaIcon.FaUsers />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
 
-    subNav: [
-      {
-        title: "Roles",
-        path: "/admin/roles",
-        icon: <VscTypeHierarchySub />,
-      },
-      {
-        title: "Users",
-        path: "/admin/users",
-        icon: <HiUsers />,
-      },
-    ],
-  },
-  {
-    title: "Users",
-    // path: "/customer",
-    icon: <FaIcon.FaUsers />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+		subNav: [
+			{
+				title: "Roles",
+				path: "/admin/roles",
+				icon: <VscTypeHierarchySub />,
+			},
+			{
+				title: "Users",
+				path: "/admin/users",
+				icon: <HiUsers />,
+			},
+		],
+	},
+	{
+		title: "Users",
+		// path: "/customer",
+		icon: <FaIcon.FaUsers />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
 
-    subNav: [
-      {
-        title: "Menu Role Mapping",
-        path: "/admin/mapping",
-        icon: <VscTypeHierarchySub />,
-      },
-    ],
-  },
-  {
-    title: "Previous Menu",
-    path: "/home",
-    icon: <MdIcon.MdPreview />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-  },
+		subNav: [
+			{
+				title: "Menu Role Mapping",
+				path: "/admin/mapping",
+				icon: <VscTypeHierarchySub />,
+			},
+		],
+	},
+	{
+		title: "Previous Menu",
+		path: "/home",
+		icon: <MdIcon.MdPreview />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
+	},
 ];

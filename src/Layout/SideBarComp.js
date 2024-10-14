@@ -1,3 +1,5 @@
+/** @format */
+
 // import React, { useState, useEffect} from "react";
 // import styled from "styled-components";
 // import { Link, useLocation } from "react-router-dom";
@@ -30,13 +32,9 @@
 //   //const [newSideBarDataScheduleListService, setNewSideBarDataScheduleListService] = useState(quotationSidebar)
 //   const [accessSideBarData, setAccessSideBarData] = useState([])
 
-
-
 //   let [lazerUser, setLazerUser] = useState(
 //     JSON.parse(localStorage.getItem("LazerUser"))
 //   );
-
-
 
 //   const [sidebar, setSidebar] = useState(true);
 
@@ -45,7 +43,7 @@
 //   function showSidebar() {
 //     setSidebar(!sidebar);
 //   }
-//   //access information is present in laser user 
+//   //access information is present in laser user
 //   //modify the array in newSideBarData based on laserUserdata
 //   useEffect(() => {
 //     const tempArray = [...accessSideBarData] //creating a copy of the accessSideBar
@@ -54,19 +52,16 @@
 
 //    // console.log(newSideBarData[0].subNav[0].path , 'first pATH')
 
-
-
 //     //remove /production from the access array
 //     for(let i = 0; i<lazerUser.data.access.length;i++) {
 //       if(lazerUser.data.access[i] === "/quotation") {
 //         lazerUser.data.access.splice(i, 1);
 
-
 //         //Setup Machine
 //         for(let j =0; j<lazerUser.data.access.length;j++) {
 //           if(newSideBarData[0].subNav[0].path.includes(lazerUser.data.access[j])) {
 //             tempArray.push(newSideBarData[0])
-//         } 
+//         }
 
 //         //Shift Planner - Shift Editor
 //         if(newSideBarData[2].subNav[0].path.includes(lazerUser.data.access[j])) {
@@ -102,7 +97,6 @@
 //           const findquotationObject = {...newSideBarData[1].subNav[0].subNav[2]}
 //           const quotationListObject = {...newSideBarData[1].subNav[0].subNav[1]}
 //           console.log('quotationObject', quotationObject)
-
 
 //           console.log('quotationObject', quotationObject)
 //           delete quotationObject.subNav;
@@ -145,7 +139,6 @@
 
 //         console.log('machineAllotmentProfileObject', machineAllotmentProfileObject)
 
-
 //         console.log('machineAllotmentObject', machineAllotmentObject)
 //         delete machineAllotmentObject.subNav;
 //         const subNav = []
@@ -183,7 +176,6 @@
 //         const shiftManagerFabricationObject = {...newSideBarData[1].subNav[2].subNav[1]}
 //         console.log('shiftManagerProfileObject', shiftManagerProfileObject)
 
-
 //         console.log('shiftManagerObject', shiftManagerObject)
 //         delete shiftManagerObject.subNav;
 //         const subNav = []
@@ -214,7 +206,6 @@
 //       }
 //     }
 
-
 //         console.log('SUBNAV MAIN', subNavMain)
 //         quotationMenuObject.subNav = subNavMain;
 //         console.log('final production object ', quotationMenuObject)
@@ -224,8 +215,6 @@
 //     }
 
 //     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 //     setAccessSideBarData(tempArray)
 
@@ -266,7 +255,6 @@
 
 // export default SidebarComp;
 
-
 /////////////////////////// - Old Code - /////////////////////////////////
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -277,139 +265,149 @@ import SubMenuComp from "../Layout/SubNavComp";
 //"./SubNavComp";
 
 import { IconContext } from "react-icons/lib";
-import {quotationSidebar, adminSidebar} from "../components/SidebarData";
-  // customerSidebar,
-  // adminSidebar,
-  // MaterialSidebar,
-  //quotationSidebar,
-  // orderSidebar,
-  // accountsSidebar,
-  // sigmancSidebar,
+import { quotationSidebar, adminSidebar } from "../components/SidebarData";
+// customerSidebar,
+// adminSidebar,
+// MaterialSidebar,
+//quotationSidebar,
+// orderSidebar,
+// accountsSidebar,
+// sigmancSidebar,
 //} from "../components/SidebarData";
 import { FaAngleRight, FaAngleLeft, FaAngleDown } from "react-icons/fa";
 //import SubNavComp from "./SubNavComp";
 
 const NavIcon = styled.div`
-  margin-left: 2rem;
-  font-size: 2rem;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+	margin-left: 2rem;
+	font-size: 2rem;
+	height: 80px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 `;
 
 const SidebarWrap = styled.div`
-  width: 100%;
-  background-color: #263159;
+	width: 100%;
+	background-color: #263159;
 `;
 
 const SidebarComp = () => {
-  const location = useLocation();
- // let [lazerUser, setLazerUser] = useState(
-  //  JSON.parse(localStorage.getItem("LazerUser"))
-  //);
+	const location = useLocation();
+	// let [lazerUser, setLazerUser] = useState(
+	//  JSON.parse(localStorage.getItem("LazerUser"))
+	//);
 
-  const [sidebar, setSidebar] = useState(true);
-  const [newSideBarData, setNewSideBarData] = useState(quotationSidebar);
-  const [accessSideBarData, setAccessSideBarData] = useState([]);
+	const [sidebar, setSidebar] = useState(true);
+	const [newSideBarData, setNewSideBarData] = useState(quotationSidebar);
+	const [accessSideBarData, setAccessSideBarData] = useState([]);
 
-  function showSidebar() {
-    setSidebar(!sidebar);
-  }
+	function showSidebar() {
+		setSidebar(!sidebar);
+	}
 
-  let [lazerUser, setLazerUser] = useState(
-   JSON.parse(localStorage.getItem("LazerUser"))
-  );
+	let [lazerUser, setLazerUser] = useState(
+		JSON.parse(localStorage.getItem("LazerUser"))
+	);
 
-   // console.log(lazerUser.data.access);
-   useEffect(() => {
-    function filterSidebarData(data, accessPaths) {
-      // console.log("first", data);
-      // console.log("second", accessPaths);
-      const filterSidebar = [];
-      let previousMenu = null;
+	// console.log(lazerUser.data.access);
+	useEffect(() => {
+		function filterSidebarData(data, accessPaths) {
+			// console.log("first", data);
+			// console.log("second", accessPaths);
+			const filterSidebar = [];
+			let previousMenu = null;
 
-      data.forEach((element) => {
-        if (element.subNav) {
-          const subNavFiltered = filterSidebarData(element.subNav, accessPaths);
-          element.subNav = subNavFiltered;
-          if (subNavFiltered.length > 0 || accessPaths.includes(element.path)) {
-            // if(element.path)
-            //   element.path = element.path.toLowerCase();
-            filterSidebar.push(element);
-          }
-        } else {
-          if (element.title === "Previous Menu") {
-            previousMenu = element;
-          } else if (accessPaths.includes(element.path)) {
-            // if(element.path)
-            //   element.path = element.path.toLowerCase();
-            filterSidebar.push(element);
-          }
-        }
-      });
-      if (previousMenu) {
-        filterSidebar.push(previousMenu);
-      }
-      return filterSidebar;
-    }
+			data.forEach((element) => {
+				if (element.subNav) {
+					const subNavFiltered = filterSidebarData(element.subNav, accessPaths);
+					element.subNav = subNavFiltered;
+					if (
+						subNavFiltered.length > 0 ||
+						accessPaths?.includes(element.path)
+					) {
+						// if(element.path)
+						//   element.path = element.path.toLowerCase();
+						filterSidebar.push(element);
+					}
+				} else {
+					if (element.title === "Previous Menu") {
+						previousMenu = element;
+					} else if (accessPaths?.includes(element.path)) {
+						// if(element.path)
+						//   element.path = element.path.toLowerCase();
+						filterSidebar.push(element);
+					}
+				}
+			});
+			if (previousMenu) {
+				filterSidebar.push(previousMenu);
+			}
+			return filterSidebar;
+		}
 
-    const filterSidebar = filterSidebarData(
-      newSideBarData,
-      lazerUser.data.access
-    );
-    // console.log(filterSidebar);
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    setAccessSideBarData(filterSidebar);
-    // setAccessSideBarData(quotationSidebar)
-  }, []);
+		const filterSidebar = filterSidebarData(
+			newSideBarData,
+			lazerUser?.data.access
+		);
+		// console.log(filterSidebar);
+		///////////////////////////////////////////////////////////////////////////////////////////////////////
+		setAccessSideBarData(filterSidebar);
+		// setAccessSideBarData(quotationSidebar)
+	}, []);
 
+	return (
+		<>
+			<nav className={sidebar ? "side-nav" : '"side-nav '}>
+				<SidebarWrap>
+					<div className="admin-title ">
+						{/* {sidebar && 'M A G O D'} */}
+						{/* <img className="logo" src={require("../ML-LOGO1.png")} /> */}
+						<img
+							className="logo"
+							src={require("../Magod-Laser-Logo - White.png")}
+						/>
+						{sidebar ? (
+							<FaAngleRight
+								className="toggle-icon"
+								onClick={() => showSidebar()}
+							/>
+						) : (
+							<FaAngleLeft
+								className="toggle-icon"
+								onClick={() => showSidebar()}
+							/>
+						)}
+					</div>
 
-  return (
-    <>
-      <nav className={sidebar ? "side-nav" : '"side-nav '}>
-        <SidebarWrap>
-          <div className="admin-title ">
-            {/* {sidebar && 'M A G O D'} */}
-            {/* <img className="logo" src={require("../ML-LOGO1.png")} /> */}
-            <img
-              className="logo"
-              src={require("../Magod-Laser-Logo - White.png")}
-            />
-            {sidebar ? (
-              <FaAngleRight
-                className="toggle-icon"
-                onClick={() => showSidebar()}
-              />
-            ) : (
-              <FaAngleLeft
-                className="toggle-icon"
-                onClick={() => showSidebar()}
-              />
-            )}
-          </div>
+					{(location.pathname.startsWith("/admin")
+						? adminSidebar
+						: accessSideBarData
+					)
+						// : (location.pathname.startsWith("/customer")
+						//   ? customerSidebar
 
-          {(location.pathname.startsWith("/admin")
-            ? adminSidebar : accessSideBarData
-            // : (location.pathname.startsWith("/customer")
-            //   ? customerSidebar
+						//   : (location.pathname.startsWith("/quotation")
+						//     ? quotationSidebar
+						//     : (location.pathname.startsWith("/order")
+						//       ? orderSidebar
+						//       : (location.pathname.startsWith("/accounts")
+						//         ? accountsSidebar
+						//         : (location.pathname.startsWith("/sigmanc")
+						//           ? sigmancSidebar
+						//           : sigmancSidebar
+						//   )))))
+						//  : QuotationSidebar
+						.map((item, index) => {
+							return (
+								<SubMenuComp
+									item={item}
+									key={index}
+									sidebar={sidebar}
+								/>
+							);
+						})}
 
-            //   : (location.pathname.startsWith("/quotation")
-            //     ? quotationSidebar
-            //     : (location.pathname.startsWith("/order")
-            //       ? orderSidebar
-            //       : (location.pathname.startsWith("/accounts")
-            //         ? accountsSidebar
-            //         : (location.pathname.startsWith("/sigmanc")
-            //           ? sigmancSidebar
-            //           : sigmancSidebar
-            //   )))))
-              //  : QuotationSidebar
-            ).map((item, index) => {
-              return <SubMenuComp item={item} key={index} sidebar={sidebar} />;
-            })}
-
-          {/* {(lazerUser.data.access.includes("/admin") ? adminSidebar : null).map(
+					{/* {(lazerUser.data.access.includes("/admin") ? adminSidebar : null).map(
             (item, index) => {
               return <SubNavComp item={item} key={index} sidebar={sidebar} />;
             }
@@ -420,10 +418,10 @@ const SidebarComp = () => {
           ).map((item, index) => {
             return <SubNavComp item={item} key={index} sidebar={sidebar} />;
           })} */}
-        </SidebarWrap>
-      </nav>
-    </>
-  );
+				</SidebarWrap>
+			</nav>
+		</>
+	);
 };
 
 export default SidebarComp;
