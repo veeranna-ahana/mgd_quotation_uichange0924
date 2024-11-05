@@ -13,9 +13,9 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 const BreadcrumbsComponent = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
-  console.log(pathnames);
+  // console.log(pathnames);
   const propertyNames = Object.values(pathnames);
-  console.log(propertyNames);
+  //console.log(propertyNames);
 
   function capitalizeWords(arr) {
     return arr.map((word) => {
@@ -25,9 +25,9 @@ const BreadcrumbsComponent = () => {
     });
   }
 
-  console.log(capitalizeWords(propertyNames));
+  // console.log(capitalizeWords(propertyNames));
   const finalArr = capitalizeWords(propertyNames);
-  console.log(finalArr);
+  // console.log(finalArr);
 
   return (
     <div style={{ marginLeft: "10px" }}>
@@ -39,9 +39,15 @@ const BreadcrumbsComponent = () => {
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
 
           return last ? (
-            <Typography key={index}>{value}</Typography>
+            <Typography key={index} style={{ fontSize: "14px" }}>
+              {value}
+            </Typography>
           ) : (
-            <Link to={to} key={index} style={{ textDecoration: "none" }}>
+            <Link
+              to={to}
+              key={index}
+              style={{ textDecoration: "none", fontSize: "14px" }}
+            >
               {" "}
               {value}
             </Link>
@@ -75,3 +81,4 @@ const BreadcrumbsComponent = () => {
 };
 
 export default BreadcrumbsComponent;
+  

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import { Form } from "react-bootstrap";
-import moment from 'moment';
+import moment from "moment";
 import { toast } from "react-toastify";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useQuotationContext } from "../../../context/QuotationContext";
@@ -15,8 +15,8 @@ function CreateNewQuotation(props) {
 
   let nav = useNavigate();
   const addDetails = () => {
-    nav("addDetails")
-  }
+    nav("addDetails");
+  };
   let navigate = useNavigate();
   let { quotation, setQuotationState } = useQuotationContext();
   //  let [custNameselected, setCustNameselected] = useState([false]);
@@ -49,7 +49,7 @@ function CreateNewQuotation(props) {
     });
     let edate = moment(new Date()).format("DD/MM/YYYY");
     setFormEnqDate(edate);
-  }, [])
+  }, []);
 
   const valienqref = (e) => {
     // if (customername == "") {
@@ -59,42 +59,51 @@ function CreateNewQuotation(props) {
 
     const eqref = e.target.value.replace(/[^A-Za-z/0-9- .]/gi, "");
     if (eqref == null) {
-      toast.error('Please enter the Enquiry Reference ..', { autoClose: 1000 }, { position: toast.POSITION.TOP_CENTER });
+      toast.error(
+        "Please enter the Enquiry Reference ..",
+        { autoClose: 1000 },
+        { position: toast.POSITION.TOP_CENTER }
+      );
       return;
     }
     setFormEnqRef(eqref);
-
-  }
+  };
 
   const handleChangePhNo = (e) => {
     const mvalue = e.target.value.replace(/[^0-9 -]/gi, "");
     if (mvalue < 0) {
-      toast.error("Telephone No cannot be blank..", { autoClose: 1000 }, { position: toast.POSITION.TOP_CENTER });
+      toast.error(
+        "Telephone No cannot be blank..",
+        { autoClose: 1000 },
+        { position: toast.POSITION.TOP_CENTER }
+      );
     }
     setFormCustTele(mvalue);
-  }
+  };
 
-
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
 
   function isValidEmail(formemailid) {
     return /\S+@\S+\.\S+/.test(formemailid);
   }
 
-  const handleEmailFinish = event => {
+  const handleEmailFinish = (event) => {
     if (!isValidEmail(formemailid)) {
       //   toast.error('Email is invalid', { autoClose: 1000 }, { position: toast.POSITION.TOP_CENTER });
       //   setEmail("");
     } else {
       setError(null);
-
     }
   };
   // new
   const valemail = (e) => {
     if (e.target.value == "") {
-      toast.error('Please enter the Email ID ..', { autoClose: 1000 }, { position: toast.POSITION.TOP_CENTER });
+      toast.error(
+        "Please enter the Email ID ..",
+        { autoClose: 1000 },
+        { position: toast.POSITION.TOP_CENTER }
+      );
       return;
     }
     //console.log(e.target.value)
@@ -105,12 +114,12 @@ function CreateNewQuotation(props) {
   const valicontact = (e) => {
     const mcontact = e.target.value.replace(/[^A-Za-z0-9 .]/gi, "");
     setFormContact(mcontact);
-  }
+  };
 
   const valCustName = (e) => {
     let cname = e.target.value.replace(/[^A-Za-z0-9. ]/gi, "");
     setCustomername(cname);
-  }
+  };
 
   let selectedCust = async (e) => {
     //   e.preventDefault();
@@ -123,11 +132,11 @@ function CreateNewQuotation(props) {
     }
     setCustCode(cust.Cust_Code != undefined ? cust.Cust_Code : "");
 
-
     postRequest(
-      endpoints.getCustomerDetails, { custcode: cust.Cust_Code, },
+      endpoints.getCustomerDetails,
+      { custcode: cust.Cust_Code },
       (resp) => {
-        console.log(resp)
+        console.log(resp);
         let excustdata = resp[0];
         if (excustdata == undefined) return;
         //   console.log(resp[0]["EMail"])
@@ -136,24 +145,40 @@ function CreateNewQuotation(props) {
 
         setCustCode(excustdata.Cust_Code);
         setFormEmailId(excustdata.EMail);
-        setFormContact(excustdata.PurchaseContact1 ? excustdata.PurchaseContact1 : excustdata.PurchaseContact2 ? excustdata.PurchaseContact2 : "")
-        setFormCustTele(excustdata.TelePurchase1 ? excustdata.TelePurchase1 : excustdata.TelePurchase2 ? excustdata.TelePurchase2 : "")
-        setFormCustAddr(excustdata.Address ? excustdata.Address : "")
-      })
-  }
+        setFormContact(
+          excustdata.PurchaseContact1
+            ? excustdata.PurchaseContact1
+            : excustdata.PurchaseContact2
+            ? excustdata.PurchaseContact2
+            : ""
+        );
+        setFormCustTele(
+          excustdata.TelePurchase1
+            ? excustdata.TelePurchase1
+            : excustdata.TelePurchase2
+            ? excustdata.TelePurchase2
+            : ""
+        );
+        setFormCustAddr(excustdata.Address ? excustdata.Address : "");
+      }
+    );
+  };
 
   async function submitSave(e) {
     e.preventDefault();
 
-    if ((customername == "") && (custNameselected == "")) {
-      toast.error('Please enter the Customer Name ..', { autoClose: 1000 }, { position: toast.POSITION.TOP_CENTER });
+    if (customername == "" && custNameselected == "") {
+      toast.error(
+        "Please enter the Customer Name ..",
+        { autoClose: 1000 },
+        { position: toast.POSITION.TOP_CENTER }
+      );
       return;
     }
     let customerName = "";
     if (custNameselected != "") {
       customerName = custNameselected;
-    }
-    else {
+    } else {
       customerName = e.target.elements.customername.value;
     }
 
@@ -166,39 +191,71 @@ function CreateNewQuotation(props) {
     let qtnstatus = "Created";
     //let qtnformat = formformat;
 
-    postRequest(endpoints.createQuotation, {
-      enquiryDate, enquiryRef, customerName, custAddress, custcode, contact, custTele, e_mail, formformat, qtnstatus
-    }, (resp) => {
-      let qtn = {
-        enquiryDate: enquiryDate,
-        enquiryRef: enquiryRef,
-        customerName: customerName,
-        custAddress: custAddress,
-        custcode: custcode,
-        custTele: custTele,
-        contact: contact,
-        e_mail: e_mail,
-        qtnformat: formformat,
-        quoteno: resp.quotationno,
+    postRequest(
+      endpoints.createQuotation,
+      {
+        enquiryDate,
+        enquiryRef,
+        customerName,
+        custAddress,
+        custcode,
+        contact,
+        custTele,
+        e_mail,
+        formformat,
+        qtnstatus,
+      },
+      (resp) => {
+        let qtn = {
+          enquiryDate: enquiryDate,
+          enquiryRef: enquiryRef,
+          customerName: customerName,
+          custAddress: custAddress,
+          custcode: custcode,
+          custTele: custTele,
+          contact: contact,
+          e_mail: e_mail,
+          qtnformat: formformat,
+          quoteno: resp.quotationno,
+        };
+        setQuotationState(qtn);
+        let qtnno = resp.quotationno.replaceAll("_", "/");
+        setQuotationNo(qtnno);
+
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        const d = new Date();
+        let mmonth = monthNames[d.getMonth()];
+        postRequest(
+          endpoints.createQuotation,
+          { SrlType: "Quotation", qno: qtnno, mmonth },
+          (resp) => {
+            console.log(resp);
+          }
+        );
+
+        toast.success(
+          "Quotation Created as " + qtnno,
+          { autoClose: 1000 },
+          { position: toast.POSITION.TOP_CENTER }
+        );
+        setSaveBtn(true);
+        setAddDetailsBtn(false);
       }
-      setQuotationState(qtn);
-      let qtnno = (resp.quotationno).replaceAll("_", "/");
-      setQuotationNo(qtnno);
-
-      const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December" ];
-
-      const d = new Date();
-      let mmonth = monthNames[d.getMonth()];
-      postRequest(endpoints.createQuotation, { SrlType :"Quotation", qno: qtnno, mmonth }, (resp) => {
-        console.log(resp);
-      });
-      
-      toast.success('Quotation Created as ' + qtnno, { autoClose: 1000 }, { position: toast.POSITION.TOP_CENTER })
-      setSaveBtn(true);
-      setAddDetailsBtn(false);
-
-    }).catch(err => console.log(err));
+    ).catch((err) => console.log(err));
   }
 
   return (
@@ -207,16 +264,29 @@ function CreateNewQuotation(props) {
       <Form onSubmit={submitSave} autoComplete="off">
         <div className="row">
           <div className="col-md-3">
-            {" "}
-            <label className="form-label">Enquiry Date</label>
-            <input id="formenqdate" type="text" disabled value={formenqdate} />
+            <div className="d-flex" style={{ gap: "10px" }}>
+              <label className="form-label col-4">Enquiry Date</label>
+              <input
+                id="formenqdate"
+                className="input-field"
+                type="text"
+                disabled
+                value={formenqdate}
+              />
+            </div>
           </div>
           <div className="col-md-5">
-            <Form.Group controlId="custNameselected">
+            {/* <Form.Group controlId="custNameselected">
               <label className="form-label">Name</label>
               <Form.Label
-                style={{ color: "#f20707", fontSize: "16px", fontWeight: "bold" }}
-              >*</Form.Label>
+                style={{
+                  color: "#f20707",
+                  fontSize: "12px",
+                  fontWeight: "bold",
+                }}
+              >
+                *
+              </Form.Label>
 
               {custdata.length > 0 ? (
                 <Typeahead
@@ -224,69 +294,190 @@ function CreateNewQuotation(props) {
                   labelKey="Cust_name"
                   onChange={selectedCust}
                   options={custdata}
-                  placeholder="Choose a Customer...">
-                </Typeahead>
+                  placeholder="Choose a Customer..."
+                ></Typeahead>
               ) : (
                 ""
               )}
-            </Form.Group>
+            </Form.Group> */}
+
+            <div className="d-flex" style={{ gap: "10px" }}>
+              <label className="form-label">
+                Name
+                <span
+                  style={{
+                    color: "#f20707",
+                    fontSize: "12px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  *
+                </span>
+              </label>
+
+              {custdata.length > 0 ? (
+                <Typeahead
+                  className="ip-select mt-1"
+                  id="basic-example"
+                  labelKey="Cust_name"
+                  onChange={selectedCust}
+                  options={custdata}
+                  placeholder="Choose a Customer..."
+                ></Typeahead>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
           <div className="col-md-4">
-            {" "}
-            <label className="form-label">Quotation No</label>
-            <input id='quotationNo' disabled type="text" value={quotationNo} />
+            {/* <label className="form-label">Quotation No</label>
+            <input id="quotationNo" disabled type="text" value={quotationNo} /> */}
+
+            <div className="d-flex" style={{ gap: "10px" }}>
+              <label className="form-label col-3">Quotation No</label>
+              <input
+                className="input-field"
+                id="quotationNo"
+                disabled
+                type="text"
+                value={quotationNo}
+              />
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-6">
-            {" "}
-            <label className="form-label">Enquiry Ref</label>
-            <input id='formenqref' type="text" maxLength={50} onChange={valienqref} value={formenqref} required />
+            {/* <label className="form-label">Enquiry Ref</label>
+            <input
+              id="formenqref"
+              type="text"
+              maxLength={50}
+              onChange={valienqref}
+              value={formenqref}
+              required
+            /> */}
+            <div className="d-flex" style={{ gap: "6px" }}>
+              <label className="form-label col-2">Enquiry Ref</label>
+              <input
+                className="input-field"
+                id="formenqref"
+                type="text"
+                maxLength={50}
+                onChange={valienqref}
+                value={formenqref}
+                required
+              />
+            </div>
           </div>
           {/* </div>
       <div className="row"> */}
           <div className="col-md-6">
-            {" "}
-            <label className="form-label">Customer</label>
-            <input className="ip-select" type="text" id="customername" onChange={(e) => setCustomername(e.target.value)} value={customername} />
+            {/* <label className="form-label">Customer</label>
+            <input
+              className="ip-select"
+              type="text"
+              id="customername"
+              onChange={(e) => setCustomername(e.target.value)}
+              value={customername}
+            /> */}
+            <div className="d-flex" style={{gap:'10px'}}>
+              <label className="form-label">Customer</label>
+              <input
+                className="ip-select mt-1"
+                type="text"
+                id="customername"
+                onChange={(e) => setCustomername(e.target.value)}
+                value={customername}
+              />
+            </div>
           </div>
         </div>
-        <div className="row mt-4">
+
+        <div className="row mt-3">
           <div className="col-md-4">
-            <div>
-              <label className="form-label">Address</label>
+            <div className="d-flex" style={{ gap: "40px" }}>
+              <label className="form-label col-2">Address</label>
+              <textarea
+                type="textarea"
+                rows={3}
+                style={{
+                  width: "320px",
+                  height: "100px",
+                  fontSize: "12px",
+                  resize: "none",
+                }}
+                onChange={(e) => setFormCustAddr(e.target.value)}
+                value={formcustAddr}
+                required
+              />
             </div>
-            <textarea
-              type="textarea" rows={3}
-              style={{ width: "320px", height: "180px" }} onChange={(e) => setFormCustAddr(e.target.value)} value={formcustAddr} required
-            />
           </div>
 
-          <div className="col-md-4">
-            <label className="form-label">Cust Tele</label>
-            <input id='formcusttele' type="text" maxLength={15} onChange={handleChangePhNo} value={formcustTele} required />
-            <label className="form-label">Contact</label>
-            <input id="formcontact" type="text" maxLength={150} onChange={valicontact} value={formcontact} required />
-            <label className="form-label">E mail ID</label>
-            <input id="formemailid" type="email" onChange={valemail} //onChange={(e) => setEmail(e.target.value)} 
-              //onBlur={handleEmailFinish} 
-              //value={formemailid}  
-              required
-            />
+          <div className="col-md-5">
+            <div className="d-flex" style={{ gap: "10px" }}>
+              <label className="form-label col-2">Cust Tele</label>
+              <input
+                className="input-field"
+                id="formcusttele"
+                type="text"
+                maxLength={15}
+                onChange={handleChangePhNo}
+                value={formcustTele}
+                required
+              />
+            </div>
+            <div className="d-flex" style={{ gap: "10px" }}>
+              <label className="form-label col-2">Contact</label>
+              <input
+                className="input-field"
+                id="formcontact"
+                type="text"
+                maxLength={150}
+                onChange={valicontact}
+                value={formcontact}
+                required
+              />
+            </div>
+            <div className="d-flex" style={{ gap: "10px" }}>
+              <label className="form-label col-2">E mail ID</label>
+              <input
+                className="input-field"
+                id="formemailid"
+                type="email"
+                onChange={valemail} //onChange={(e) => setEmail(e.target.value)}
+                //onBlur={handleEmailFinish}
+                //value={formemailid}
+                required
+              />
+            </div>
           </div>
           {/* </div>
       <div className="row mb-4"> */}
-          <div className="col-md-4">
-            <button className="button-style" disabled={savebtn} type="submit">Save</button>
-            <button className="button-style" disabled={adddetailsbtn} onClick={() => navigate(`/Quotation/addDetails?qtnformat=${searchParams.get("qtnformat")}`)}>Add Details</button>
+          <div className="col-md-3">
+            <button className="button-style" disabled={savebtn} type="submit">
+              Save
+            </button>
+            <button
+              className="button-style"
+              disabled={adddetailsbtn}
+              onClick={() =>
+                navigate(
+                  `/Quotation/addDetails?qtnformat=${searchParams.get(
+                    "qtnformat"
+                  )}`
+                )
+              }
+            >
+              Add Details
+            </button>
+            <button className="button-style">
+              Close
+            </button>
           </div>
-
         </div>
-      </Form >
-    </div >
-
-
+      </Form>
+    </div>
   );
 }
 

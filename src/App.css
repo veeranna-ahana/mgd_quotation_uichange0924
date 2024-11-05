@@ -8,6 +8,16 @@ body {
   /* background-color: red; */
 }
 
+.title {
+  text-align: center;
+  font-size: 14px;
+  height: 22px;
+  padding: 2px;
+  color: white;
+  background-color: #2b3a55;
+  border-radius: 10px 10px 0px 0px;
+}
+
 a {
   text-decoration: none !important;
 }
@@ -67,10 +77,6 @@ a {
   text-decoration: none;
 }
 
-/*.active {
-   border-right: 4px solid #000000; */
-  /* background-color: #fffbfa; 
-}*/
 .icon {
   font-size: 0.75rem;
   color: #ffffff;
@@ -117,7 +123,7 @@ a {
   background-color: #ffffff;
   color: #000000;
   display: flex;
-  height: 10vh;
+  /* height: 10vh; */
   justify-content: space-between;
   align-items: center;
   box-shadow: 2px 5px 5px -2px #111;
@@ -125,7 +131,7 @@ a {
 
 .content {
   height: 85vh;
-  padding: 10px;
+  padding: 8px;
   overflow-y: scroll;
 }
 
@@ -133,18 +139,6 @@ a {
   text-decoration: none;
   color: #000000;
   font-size: 14px;
-}
-.button-style {
-  width: 155px;
-  height: 38px;
-  border: none;
-  margin-right: 10px;
-  background-color: #2b3a55;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 3px;
-  margin-top: 10px;
-  font-size: 18px;
 }
 
 /* width for buttons  */
@@ -172,7 +166,7 @@ a {
   top: 0;
   display: block;
   transition: 0.2s;
-  font-size: 0.5rem;
+  font-size: 1rem;
   color: gray;
 }
 
@@ -242,7 +236,7 @@ a {
 
 input,
 Form.Control {
-  font-size: 18px;
+  font-size: 14px;
   padding: -3px 8px 8px 5px;
   display: block;
   width: 100%;
@@ -256,20 +250,6 @@ input:focus {
 
 .tab-content {
   padding: 0px !important;
-}
-
-.ip-select {
-  font-size: 14px;
-  padding: -3px 10px 10px 5px;
-  display: block;
-  width: 100%;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 1px solid #757575;
-}
-.ip-select:focus {
-  outline: none;
-  border-bottom: 1px solid #3932be;
 }
 
 label {
@@ -300,10 +280,6 @@ label {
 }
 .contact-details-tbl {
   background-color: white;
-}
-
-.css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root {
-  font-size: 1.3rem !important;
 }
 
 .main-form {
@@ -343,24 +319,33 @@ label {
 }
 
 .css-4pdmu4-MuiBreadcrumbs-ol {
-  margin-top: 18px !important;
-  font-size: 16px !important;
+  /* margin-top: 18px !important; */
+  margin-top: 5px !important;
+  /* font-size: 16px !important; */
+  font-size: 14px !important;
+}
+
+.css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root {
+  font-size: 10px !important;
 }
 
 .form-title {
-  font-size: 1.2rem;
-  background-color: #ffffff;
+  font-size: 14px;
+  /* background-color: #ffffff; */
   opacity: 1;
   /* padding-bottom: -10px; */
 }
 
-.table-header {
+/* .table-header {
   font-size: 12px;
-}
+  padding: 3px !important;
+} */
+
 /* table items font size */
-td {
-  font-size: 14px;
-}
+
+/* td {
+  font-size: 12px;
+} */
 
 .title_name {
   color: #ffffff;
@@ -373,21 +358,20 @@ td {
 
 .tab_font {
   font-weight: 600;
+  font-size: 12px;
 }
 
 .tableHeaderBGColor {
   /* background-color: rgb(43, 43, 43); */
-  font-size: 14px;
+  font-size: 17px;
   background-color: gray;
   color: white;
   position: sticky;
   top: -1px;
+  text-transform: capitalize;
   /* z-index: 100; */
 }
 
-td {
-  font-size: 12px !important;
-}
 /* checkbox style */
 .checkBoxStyle {
   top: 0px;
@@ -407,6 +391,7 @@ td {
 .nav-tabs .nav-link {
   background-color: rgb(107, 162, 207) !important;
   color: white !important;
+  padding: 3px;
 }
 .nav-tabs .nav-link.active {
   background-color: whitesmoke !important;
@@ -425,39 +410,137 @@ li.nav-item {
   background-color: #ffffff;
 }
 
-/* rbt-input-main form-control rbt-input */
-.tbody {
-  font-size: 14px !important;
+/* ****************************************************************************************************** */
+
+.input-field {
+  font-size: 12px;
+  height: 22px;
 }
 
-.form-bg {
-  background-color: #e6e6e6;
-  padding: 6px 1px 2px 15px;
-  /* border-radius: 10px; */
+.form-label {
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.dxf-content-container {
-  /* max-width: 800px; */
+.button-style {
+  width: auto;
+  height: 25px;
+  border: none;
+  margin-right: 10px;
+  background-color: #2b3a55;
+  color: #ffffff;
+  border-radius: 5px;
+  /* padding: 1px; */
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.button-disabled {
+  /* color: white !important;
+  background-color: rgb(173, 173, 173) !important;
+  cursor: no-drop; */
+  width: 60px;
+  height: 25px;
+  border: none;
+  margin-right: 10px;
+  background-color: rgb(173, 173, 173) !important;
+  color: white !important;
+  border-radius: 5px;
+  /* padding: 1px; */
+  margin-top: 8px;
+  font-size: 12px;
+  cursor: no-drop;
+}
+
+th {
+  font-size: 12px !important;
+  padding: 3px !important;
+}
+
+td {
+  font-size: 12px !important;
+  padding: 3px !important;
+}
+
+.in-field {
+  font-size: 12px;
+  height: 22px;
+  border-radius: 5px;
+  text-indent: 3px;
+}
+
+.ip-select {
+  font-size: 12px;
+  padding: -3px 10px 10px 5px;
+  display: block;
   width: 100%;
-  max-height: 370px;
-  border-radius: 10px;
-  /* border: 1px solid #283e81; */
-  padding: 25px;
-  transform-origin: 0% 50%;
-  overflow: auto;
-  background-color: #000000;
-  /* max-zoom: 300%;
-  min-zoom: 20%;
-  zoom: 100%;
-  user-zoom: 100%;
-  zoom:initial; */
+  height: 22px;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #757575;
 }
 
-.dxf-content-container > svg > g > g {
-  stroke: #00ff00;
+.ip-select:focus {
+  outline: none;
+  border-bottom: 1px solid #3932be;
 }
 
-.dxf-content-container > svg {
-  fill: #000000;
-  background-color: #000000;
+.selectedRowClr {
+  background-color: #98a8f8 !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+}
+
+.erp_title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-link {
+  padding: 3px;
+}
+
+.tab_font {
+  /* font-weight: 600; */
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-link {
+  background-color: rgb(107, 162, 207) !important;
+  color: white !important;
+  padding: 3px;
+}
+.nav-tabs .nav-link.active {
+  background-color: whitesmoke !important;
+  color: black !important;
+  padding: 3px;
+}
+
+li.nav-item {
+  margin-left: 5px !important;
+}
+
+.input-style {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none !important;
+  text-align: center;
+}
+
+.hr-line {
+  height: 0px;
+  border: none;
+  border-top: 4px solid #3b84ea;
 }
