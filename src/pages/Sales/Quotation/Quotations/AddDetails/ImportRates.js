@@ -22,17 +22,17 @@ export default function ImportRates({ show, setShow }) {
       <ToastContainer />
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Magod Laser:Import Rates</Modal.Title>
+          <Modal.Title style={{fontSize:'14px'}}>Magod Laser:Import Rates</Modal.Title>
         </Modal.Header>
-        <Modal.Body> Current Details will be  deleted before importing.Continue?
+        <Modal.Body style={{fontSize:'12px'}}> Current Details will be  deleted before importing.Continue?
         </Modal.Body>
         <Modal.Footer>
-          <Button style={{ backgroundColor: "#2b3a55", border: "#2b3a55" }} onClick={onClickYes}>
+          <button className='button-style' onClick={onClickYes}>
             Yes
-          </Button>
-          <Button variant="secondary" onClick={handleClose}>
+          </button>
+          <button className='button-style' variant="secondary" onClick={handleClose}>
             No
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
 

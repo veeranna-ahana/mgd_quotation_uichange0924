@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
@@ -26,7 +28,6 @@ import { AiOutlineSchedule } from "react-icons/ai";
 import { GiLaserPrecision } from "react-icons/gi";
 import { HiCubeTransparent } from "react-icons/hi";
 import { AiFillSchedule } from "react-icons/ai";
-
 
 // export const customerSidebar = [
 //   {
@@ -597,11 +598,10 @@ import { AiFillSchedule } from "react-icons/ai";
 //   }
 // ];
 
-
 export const quotationSidebar = [
   {
     title: "Quotation",
-    icon: <SiRedhatopenshift/>,
+    icon: <SiRedhatopenshift />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
@@ -697,12 +697,12 @@ export const quotationSidebar = [
           },
           {
             title: "Closed",
-            path: '/Quotation/Quotelist?qtnliststat=Closed&qtnstatus=Closed&qtnformat=Service',
+            path: "/Quotation/Quotelist?qtnliststat=Closed&qtnstatus=Closed&qtnformat=Service",
             // icon: <AiIcons.AiOutlineArrowRight />,
           },
         ],
       },
-    ]
+    ],
   },
   {
     title: "Fabrication",
@@ -754,17 +754,24 @@ export const quotationSidebar = [
           },
         ],
       },
-    ]
+    ],
   },
+  // {
+  //   title: "Previous Menu",
+  //   path: "/salesHome",
+  //   icon: <MdIcon.MdPreview />,
+  //   iconClosed: <RiIcons.RiArrowDownSFill />,
+  //   iconOpened: <RiIcons.RiArrowUpSFill />,
+  // }
   {
     title: "Previous Menu",
-    path: "/salesHome",
+    // path: "http://172.16.20.61:3000/salesHome",
+    path: "http://localhost:3000/salesHome",
     icon: <MdIcon.MdPreview />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-  }
+  },
 ];
-
 
 ///////////////////////////////////////////////////////////////////////////
 // export const sigmancSidebar = [
@@ -782,7 +789,6 @@ export const quotationSidebar = [
 //         iconOpened: <RiIcons.RiArrowUpSFill />,
 //         // icon: <FiEdit />,
 //         subNav: [
-
 
 //           {
 //             title: "To_Program",
@@ -819,13 +825,11 @@ export const quotationSidebar = [
 //         iconClosed: <RiIcons.RiArrowDownSFill />,
 //         iconOpened: <RiIcons.RiArrowUpSFill />,
 //       }
-      
 
 //     ]
 //   }
 
 // ];
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -976,7 +980,6 @@ export const quotationSidebar = [
 //     ]
 //   }
 
-
 //   // {
 //   //   title: "Quotation",
 //   //   // path: "/customer/outstandings",
@@ -1038,14 +1041,14 @@ export const quotationSidebar = [
 //     icon: <BsIcon.BsListTask />,
 //     iconClosed: <RiIcons.RiArrowDownSFill />,
 //     iconOpened: <RiIcons.RiArrowUpSFill />,
- 
+
 //     subNav: [
 //       {
 //         title: "Server",
 //         path: "/materialmanagement/server",
 //         icon: <AiIcons.AiOutlineInfoCircle />,
 //       },
-      
+
 //     ],
 //   },*/
 

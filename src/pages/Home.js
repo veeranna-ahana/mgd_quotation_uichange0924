@@ -75,8 +75,6 @@ function Home() {
           </Link>
         ) : null} */}
 
-
-
         {lazerUser.data.access.includes("/admin") ? (
           <Link to="/admin" style={{ textDecoration: "none", color: "black" }}>
             <div className="dashboard-card">

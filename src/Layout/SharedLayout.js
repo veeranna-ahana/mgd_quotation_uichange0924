@@ -17,13 +17,19 @@ function SharedLayout() {
           <div className="content-child ">
             <div
               className="child"
-              style={{ position: "sticky", top: "0px", zIndex: "100" }}
+              style={{
+                position: "sticky",
+                top: "0px",
+                zIndex: "100",
+              }}
             >
               <Header />
               <div
                 style={{
                   position: "relative",
-                  top: "-16px",
+                  // top: "-16px",
+                  top: "-6px",
+
                   backgroundColor: "white",
                 }}
               >
